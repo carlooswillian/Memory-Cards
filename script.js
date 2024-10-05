@@ -11,76 +11,80 @@ const cardImages = [
     'imagem10.jpg', 'imagem10.jpg'
 ];
 
-let board = document.getElementById('game-board');
-let score1 = document.getElementById('score1');
-let score2 = document.getElementById('score2');
-
-let playerTurn = 1;
-let scores = [0, 0];
+let cards = [];
+let player1Score = 0;
+let player2Score = 0;
+let currentPlayer = 1;
 let flippedCards = [];
 let matchedCards = 0;
 
-function shuffle(array) {
-    return array.sort(() => Math.random() - 0.5);
-}
+function setupGame() {
+    cards = shuffle(cardImages);
+    const gameBoard = document.getElementById('game-board');
+    gameBoard.innerHTML = '';
 
-function createBoard() {
-    let shuffledImages = shuffle(cardImages);
-    for (let image of shuffledImages) {
-        let card = document.createElement('div');
+    cards.forEach((image) => {
+        const card = document.createElement('div');
         card.classList.add('card');
-        
-        // Criação da imagem
-        let img = document.createElement('img');
-        img.setAttribute('src', image);
+        card.dataset.image = image;
+
+        const img = document.createElement('img');
+        img.src = image;
         card.appendChild(img);
 
         card.addEventListener('click', flipCard);
-        board.appendChild(card);
-    }
+        gameBoard.appendChild(card);
+    });
+}
+
+function shuffle(array) {
+    return array.sort(() => Math.random() - 0.5);
 }
 
 function flipCard() {
     if (flippedCards.length < 2 && !this.classList.contains('flipped')) {
         this.classList.add('flipped');
         flippedCards.push(this);
+
         if (flippedCards.length === 2) {
-            setTimeout(checkMatch, 1000);
+            checkMatch();
         }
     }
 }
 
 function checkMatch() {
     const [firstCard, secondCard] = flippedCards;
-    if (firstCard.querySelector('img').src === secondCard.querySelector('img').src) {
-        scores[playerTurn - 1]++;
+
+    if (firstCard.dataset.image === secondCard.dataset.image) {
         matchedCards += 2;
         updateScore();
+        flippedCards = [];
+
+        if (matchedCards === cards.length) {
+            setTimeout(() => alert(`Parabéns! Jogador ${currentPlayer} venceu!`), 500);
+        }
     } else {
-        firstCard.classList.remove('flipped');
-        secondCard.classList.remove('flipped');
-    }
-    flippedCards = [];
-    playerTurn = playerTurn === 1 ? 2 : 1;
-    
-    if (matchedCards === cardImages.length) {
-        alert(`Jogo terminado! Jogador 1: ${scores[0]}, Jogador 2: ${scores[1]}`);
-        resetGame();
+        setTimeout(() => {
+            firstCard.classList.remove('flipped');
+            secondCard.classList.remove('flipped');
+            switchPlayer();
+            flippedCards = [];
+        }, 1000);
     }
 }
 
 function updateScore() {
-    score1.textContent = scores[0];
-    score2.textContent = scores[1];
+    if (currentPlayer === 1) {
+        player1Score++;
+        document.getElementById('player1-score').innerText = player1Score;
+    } else {
+        player2Score++;
+        document.getElementById('player2-score').innerText = player2Score;
+    }
 }
 
-function resetGame() {
-    scores = [0, 0];
-    playerTurn = 1;
-    matchedCards = 0;
-    board.innerHTML = '';
-    createBoard();
-    updateScore();
+function switchPlayer() {
+    currentPlayer = currentPlayer === 1 ? 2 : 1;
 }
 
-createBoard();
+setupGame();
