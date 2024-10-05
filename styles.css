@@ -5,11 +5,12 @@ body {
     text-align: center;
     margin: 0; /* Remove margens padrão */
     padding: 0; /* Remove preenchimentos padrão */
+    overflow: hidden; /* Impede que a tela role se o conteúdo ultrapassar */
 }
 
 #game-board {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); /* Muda o tamanho mínimo dos cards para 70px */
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* Ajusta o tamanho mínimo dos cards para 50px */
     grid-gap: 10px; /* Espaço entre os cards */
     justify-content: center;
     margin: 20px auto;
@@ -19,7 +20,7 @@ body {
 }
 
 .card {
-    height: 80px; /* Altura ajustada para os cards */
+    height: 50px; /* Altura ajustada para os cards */
     background-color: #4a90e2;
     display: flex;
     align-items: center;
