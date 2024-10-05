@@ -15,8 +15,8 @@ h1 {
 
 #game-board {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); /* Ajusta o tamanho mínimo dos cards para 70px */
-    grid-gap: 15px; /* Aumenta o espaço entre os cards */
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* Ajusta o tamanho mínimo dos cards para 50px */
+    grid-gap: 10px; /* Aumenta o espaço entre os cards */
     justify-content: center;
     margin: 20px auto;
     padding: 10px;
@@ -74,4 +74,32 @@ h1 {
     background-color: #c72c3b; /* Cor de fundo para as seções dos jogadores */
     color: #fff; /* Cor do texto em branco para contraste */
     border-radius: 5px; /* Bordas arredondadas para cada jogador */
+}
+
+/* Estilização da mensagem do ganhador */
+#winner-message {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #c72c3b; /* Tom de vermelho para a mensagem */
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#reload-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #ff4d4d; /* Cor de fundo para o botão */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Efeito ao passar o mouse */
+}
+
+#reload-button:hover {
+    background-color: #ff1a1a; /* Cor mais escura ao passar o mouse */
 }
