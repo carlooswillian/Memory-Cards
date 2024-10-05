@@ -29,7 +29,12 @@ function createBoard() {
     for (let image of shuffledImages) {
         let card = document.createElement('div');
         card.classList.add('card');
-        card.setAttribute('data-image', image);
+        
+        // Criação da imagem
+        let img = document.createElement('img');
+        img.setAttribute('src', image);
+        card.appendChild(img);
+
         card.addEventListener('click', flipCard);
         board.appendChild(card);
     }
@@ -38,7 +43,6 @@ function createBoard() {
 function flipCard() {
     if (flippedCards.length < 2 && !this.classList.contains('flipped')) {
         this.classList.add('flipped');
-        this.style.backgroundImage = `url('${this.getAttribute('data-image')}')`;
         flippedCards.push(this);
         if (flippedCards.length === 2) {
             setTimeout(checkMatch, 1000);
@@ -48,18 +52,17 @@ function flipCard() {
 
 function checkMatch() {
     const [firstCard, secondCard] = flippedCards;
-    if (firstCard.getAttribute('data-image') === secondCard.getAttribute('data-image')) {
+    if (firstCard.querySelector('img').src === secondCard.querySelector('img').src) {
         scores[playerTurn - 1]++;
         matchedCards += 2;
         updateScore();
     } else {
         firstCard.classList.remove('flipped');
         secondCard.classList.remove('flipped');
-        firstCard.style.backgroundImage = '';
-        secondCard.style.backgroundImage = '';
-        playerTurn = playerTurn === 1 ? 2 : 1;
     }
     flippedCards = [];
+    playerTurn = playerTurn === 1 ? 2 : 1;
+    
     if (matchedCards === cardImages.length) {
         alert(`Jogo terminado! Jogador 1: ${scores[0]}, Jogador 2: ${scores[1]}`);
         resetGame();
