@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa de Mensagens Surpresa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Caixa de Mensagens Surpresa</h1>
+    </header>
+
+    <main>
+        <section class="message-box">
+            <h2>Abra suas mensagens</h2>
+            <p>Insira a palavra-chave para abrir uma mensagem especial.</p>
+            <form id="message-form">
+                <input type="password" id="keyword" placeholder="Palavra-chave" required>
+                <button type="submit">Abrir</button>
+            </form>
+            <div id="message-output"></div>
+        </section>
+
+        <section class="add-message">
+            <h2>Adicionar Nova Mensagem</h2>
+            <p>Escolha a data e insira uma mensagem surpresa para o futuro.</p>
+            <form id="add-message-form">
+                <input type="password" id="add-keyword" placeholder="Palavra-chave" required>
+                <input type="date" id="date" required>
+                <textarea id="new-message" placeholder="Escreva sua mensagem" required></textarea>
+                <button type="submit">Adicionar Mensagem</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Feito com amor</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
