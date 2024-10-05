@@ -25,7 +25,7 @@ h1 {
 }
 
 .card {
-    width: 50px; /* Definindo a largura do card */
+    width: 70px; /* Definindo a largura do card */
     height: 70px; /* Altura ajustada para os cards */
     background-color: #ff4d4d; /* Tom de vermelho mais forte para os cards */
     border-radius: 10px; /* Bordas arredondadas para os cards */
@@ -55,8 +55,23 @@ h1 {
     display: block; /* Mostra a imagem quando o card é virado */
 }
 
+/* Estilização do placar */
 #scoreboard {
     margin-top: 20px;
     font-size: 1.2em;
     color: #c72c3b; /* Tom de vermelho mais escuro para o placar */
+    display: flex; /* Usa flexbox para alinhar os jogadores */
+    justify-content: space-around; /* Espaçamento igual entre os jogadores */
+    padding: 10px;
+    background-color: #ffcccc; /* Fundo mais suave para o placar */
+    border-radius: 10px; /* Bordas arredondadas para o placar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+}
+
+#scoreboard p {
+    margin: 0; /* Remove margens padrão dos parágrafos */
+    padding: 10px; /* Adiciona preenchimento ao redor dos textos dos jogadores */
+    background-color: #c72c3b; /* Cor de fundo para as seções dos jogadores */
+    color: #fff; /* Cor do texto em branco para contraste */
+    border-radius: 5px; /* Bordas arredondadas para cada jogador */
 }
