@@ -25,7 +25,7 @@ h1 {
 }
 
 .card {
-    width: 70px; /* Definindo a largura do card */
+    width: 50px; /* Definindo a largura do card */
     height: 70px; /* Altura ajustada para os cards */
     background-color: #ff4d4d; /* Tom de vermelho mais forte para os cards */
     border-radius: 10px; /* Bordas arredondadas para os cards */
