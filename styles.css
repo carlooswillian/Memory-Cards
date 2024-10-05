@@ -1,34 +1,46 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
+    background-color: #ffe5e5; /* Um tom suave de vermelho claro */
     color: #333;
     text-align: center;
-    margin: 0; /* Remove margens padrão */
-    padding: 0; /* Remove preenchimentos padrão */
-    overflow: hidden; /* Impede que a tela role se o conteúdo ultrapassar */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+h1 {
+    color: #c72c3b; /* Tom de vermelho mais escuro para o título */
+    margin: 20px 0;
 }
 
 #game-board {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* Ajusta o tamanho mínimo dos cards para 50px */
-    grid-gap: 10px; /* Espaço entre os cards */
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); /* Ajusta o tamanho mínimo dos cards para 70px */
+    grid-gap: 15px; /* Aumenta o espaço entre os cards */
     justify-content: center;
     margin: 20px auto;
-    padding: 10px; /* Adiciona um pouco de preenchimento */
-    max-width: 90vw; /* Limita a largura total do tabuleiro */
-    box-sizing: border-box; /* Inclui o preenchimento e a borda nas dimensões totais */
+    padding: 10px;
+    max-width: 90vw;
+    box-sizing: border-box;
 }
 
 .card {
-    width: 50px;
+    width: 50px; /* Definindo a largura do card */
     height: 70px; /* Altura ajustada para os cards */
-    background-color: #4a90e2;
+    background-color: #ff4d4d; /* Tom de vermelho mais forte para os cards */
+    border-radius: 10px; /* Bordas arredondadas para os cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     position: relative;
-    overflow: hidden; /* Garante que a imagem não ultrapasse o card */
+    overflow: hidden;
+    transition: transform 0.3s; /* Efeito de transformação suave ao passar o mouse */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Aumenta levemente o card ao passar o mouse */
 }
 
 .card img {
@@ -36,6 +48,7 @@ body {
     height: 100%; /* Ajusta a altura da imagem */
     object-fit: cover; /* Garante que a imagem cubra o card sem distorção */
     display: none; /* Oculta a imagem inicialmente */
+    border-radius: 10px; /* Aplica bordas arredondadas à imagem */
 }
 
 .card.flipped img {
@@ -44,4 +57,6 @@ body {
 
 #scoreboard {
     margin-top: 20px;
+    font-size: 1.2em;
+    color: #c72c3b; /* Tom de vermelho mais escuro para o placar */
 }
