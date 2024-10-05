@@ -1,6 +1,6 @@
 const cardImages = [
     'imagem1.jpg', 'imagem1.jpg',
-    'imagem2.jpg', 'imagem2.jpg',
+    'imagem2.JPG', 'imagem2.JPG',
     'imagem3.jpg', 'imagem3.jpg',
     'imagem4.jpg', 'imagem4.jpg',
     'imagem5.jpg', 'imagem5.jpg',
