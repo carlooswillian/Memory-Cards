@@ -20,6 +20,45 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    display: none; /* Oculta a imagem inicialmente */
+}
+
+.card.flipped img {
+    display: block; /* Mostra a imagem quando o card é virado */
+}
+
+#scoreboard {
+    margin-top: 20px;
+}
+ {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    text-align: center;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 150px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.card {
+    width: 150px;
+    height: 150px;
+    background-color: #4a90e2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 24px;
     color: white;
     cursor: pointer;
